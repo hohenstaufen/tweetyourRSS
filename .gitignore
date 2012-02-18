@@ -1,0 +1,4 @@
+*.pyc
+.idea
+history.bin
+local_settings.py
