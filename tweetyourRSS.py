@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+'''
+tweetyourRSS is a simple python script that enables you to publish any RSS feed
+on twitter
+'''
+
 import sys
 import tweepy
 import pickle
@@ -5,6 +11,11 @@ from bitly import bitly
 from twitter import twitter
 from feeds import feeds
 from settings import *
+
+__author__ = "Alberto Buratti, Mattia Larentis"
+__license__ = "WTFPL"
+__maintainer__ = "Alberto Buratti"
+__email__ = "alberto.buratti@bluemead.org"
 
 
 def main(argv=None):
