@@ -18,7 +18,7 @@ __maintainer__ = "Alberto Buratti"
 __email__ = "alberto.buratti@bluemead.org"
 
 
-def main(argv=None):
+def main():
     '''
     app entry point
     '''
@@ -31,7 +31,8 @@ def main(argv=None):
     # tries to load the history from the file. If an exception is raised,
     # istantiates an empty dictionary object
     try:
-        history = pickle.load(open(HISTORY_FILE, 'rb'))
+        with open(HISTORY_FILE, 'rb') as history_file:
+            history = pickle.load(history_file)
     except:
         history = dict()
 
@@ -60,7 +61,8 @@ def main(argv=None):
         # updates the last timestamp
         history[rsskey] = fd.get_last_timestamp()
     # saves the history
-    pickle.dump(history, open(HISTORY_FILE, 'wb'))
+    with open(HISTORY_FILE, 'wb') as history_file:
+        pickle.dump(history, history_file)
     sys.exit(0)
 
 if __name__ == "__main__":
