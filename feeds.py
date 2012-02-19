@@ -2,7 +2,7 @@ import feedparser
 import helpers
 
 
-class feeds:
+class Feeds(object):
     '''
     class that manages the rss feeds fetching
     '''

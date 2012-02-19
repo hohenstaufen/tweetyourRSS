@@ -1,7 +1,7 @@
 import urllib
 
 
-class bitly:
+class Bitly(object):
     '''
     class that manages the bit.ly services
     '''

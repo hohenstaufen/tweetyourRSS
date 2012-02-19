@@ -7,12 +7,13 @@ on twitter
 import sys
 import tweepy
 import pickle
-from bitly import bitly
-from twitter import twitter
-from feeds import feeds
+from bitly import Bitly
+from twitter import Twitter
+from feeds import Feeds
 from settings import *
 
 __author__ = "Alberto Buratti, Mattia Larentis"
+__credits__ = ["Alberto Buratti", "Mattia Larentis", "Federico Scrinzi"]
 __license__ = "WTFPL"
 __maintainer__ = "Alberto Buratti"
 __email__ = "alberto.buratti@bluemead.org"
@@ -23,10 +24,10 @@ def main():
     app entry point
     '''
     # gets a twitter object
-    tw = twitter(TWITTER['CONSUMER_KEY'], TWITTER['CONSUMER_SECRET'], \
+    tw = Twitter(TWITTER['CONSUMER_KEY'], TWITTER['CONSUMER_SECRET'], \
         TWITTER['ACCESS_TOKEN'], TWITTER['ACCESS_TOKEN_SECRET'])
     # gets a bitly object
-    bl = bitly(BITLY['USER'], BITLY['APIKEY'])
+    bl = Bitly(BITLY['USER'], BITLY['APIKEY'])
 
     # tries to load the history from the file. If an exception is raised,
     # istantiates an empty dictionary object
@@ -39,7 +40,7 @@ def main():
     # cycles through the RSSs defined in settings
     for rsskey, rssvalue in RSS.iteritems():
         # gets a feed object
-        fd = feeds(rssvalue['RSS'])
+        fd = Feeds(rssvalue['RSS'])
         # tries to load last timestamp. If an exception is raised,
         # initializes it with the init value defined in settings
         try:

@@ -1,7 +1,7 @@
 import tweepy
 
 
-class twitter:
+class Twitter(object):
     '''
     class that manages the twitter interaction
     '''
